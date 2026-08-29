@@ -4,18 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Last Quarters</title>
+    <style>
+      :root { font-family: Inter, system-ui, sans-serif; color: #eee; background: #050912; }
+      * { box-sizing: border-box; }
+      html, body, #game { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #050912; }
+      canvas { display: block; width: 100%; height: 100%; }
+      #hud { position: fixed; inset: 0; pointer-events: none; color: #eee; text-shadow: 0 2px 8px #000; }
+      #clock { position: absolute; top: 22px; right: 28px; font: 600 25px/1.1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
+      #shift { position: absolute; top: 25px; left: 28px; font-size: 11px; letter-spacing: .18em; opacity: .68; }
+      #objective { position: absolute; left: 28px; bottom: 54px; max-width: 540px; font-size: 15px; letter-spacing: .03em; }
+      #hint { position: absolute; left: 28px; bottom: 24px; font-size: 11px; opacity: .55; }
+      #interaction { position: absolute; left: 50%; bottom: 18%; transform: translateX(-50%); padding: 8px 13px; border: 1px solid rgba(255,255,255,.22); background: rgba(7,10,15,.72); border-radius: 6px; font-size: 12px; letter-spacing: .06em; opacity: 0; transition: opacity .12s; backdrop-filter: blur(5px); }
+      #crosshair { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font: 14px monospace; opacity: .55; }
+      #fade { position: fixed; inset: 0; pointer-events: none; background: radial-gradient(circle at 50% 46%, transparent 30%, rgba(0,0,0,.32) 100%); }
+      #start { position: fixed; inset: 0; display: grid; place-items: center; background: radial-gradient(circle at 50% 45%, rgba(28,42,58,.4), rgba(2,6,11,.95) 70%); z-index: 5; cursor: pointer; }
+      #start .card { text-align: center; padding: 36px 44px; border: 1px solid rgba(255,255,255,.12); background: rgba(7,11,17,.68); box-shadow: 0 20px 80px rgba(0,0,0,.45); backdrop-filter: blur(8px); }
+      #start h1 { margin: 0 0 8px; font: 500 32px/1.1 Georgia, serif; letter-spacing: .08em; }
+      #start p { margin: 8px 0; color: #aeb7c2; font-size: 12px; }
+      #start .enter { margin-top: 24px; color: #e8d8ad; font-size: 11px; letter-spacing: .2em; }
+    </style>
   </head>
   <body>
     <div id="game"></div>
     <div id="hud">
       <div id="clock">19:00</div>
-      <div id="shift">SHIFT 01 · SIGNAL CABIN</div>
-      <div id="objective">Stand by for the next train.</div>
+      <div id="shift">THE LAST QUARTERS · SHIFT 01</div>
+      <div id="objective">Stand by for the first train.</div>
       <div id="hint">Click to enter first-person · WASD move · Mouse look · E interact · Shift sprint</div>
     </div>
-    <div id="interaction">E</div>
+    <div id="interaction"></div>
     <div id="crosshair">+</div>
     <div id="fade"></div>
+    <div id="start">
+      <div class="card">
+        <h1>THE LAST QUARTERS</h1>
+        <p>Signal Cabin No. 17 · Night Shift</p>
+        <div class="enter">CLICK TO BEGIN</div>
+      </div>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
