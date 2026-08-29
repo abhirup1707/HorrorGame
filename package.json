@@ -1,0 +1,1 @@
+{"name":"the-last-quarters","version":"0.1.0","private":true,"type":"module","scripts":{"dev":"vite","build":"vite build","preview":"vite preview"},"dependencies":{"three":"^0.180.0","vite":"^7.1.3"},"devDependencies":{}}
